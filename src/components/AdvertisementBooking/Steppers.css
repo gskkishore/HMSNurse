@@ -1,0 +1,90 @@
+/* .flow .makeStyles-completed-52 {
+  background-color: #73e69a !important;
+  color: white !important;
+  font-size: 25px !important;
+  border-radius: 50% !important;
+}
+.flow .MuiSvgIcon-root {
+  background-color: #73e69a !important;
+  color: white !important;
+  font-size: 25px !important;
+  border-radius: 50% !important;
+}
+.flow .MuiStep-horizontal {
+  padding-right: 0px !important;
+}
+
+.flow
+  .WithStyles\(ForwardRef\(StepConnector\)\)-active-93
+  .WithStyles\(ForwardRef\(StepConnector\)\)-line-95 {
+  border-color: #56be78 !important;
+}
+.flow .MuiStepConnector-lineHorizontal {
+  border-color: #56be78 !important;
+}
+.flow .makeStyles-circle-51 {
+  width: 25px !important;
+  height: 25px !important;
+  background-color: #e3e3e3 !important;
+}
+.flow .MuiStepLabel-iconContainer {
+  width: 25px !important;
+  height: 25px !important;
+  background-color: #e3e3e3 !important;
+}
+.flow .MuiStepLabel-iconContainer.MuiStepLabel-alternativeLabel {
+  width: 25px !important;
+  height: 25px !important;
+  background-color: #e3e3e3 !important;
+}
+.flow .WithStyles\(ForwardRef\(StepConnector\)\)-alternativeLabel-92 {
+  right: calc(48.5% + 16px) !important;
+}
+.flow .MuiStepConnector-alternativeLabel {
+  right: calc(48.5% + 16px) !important;
+}
+
+.makeStyles-circle-400 {
+  background-color: #73e69a !important;
+  color: white !important;
+  font-size: 25px !important;
+  border-radius: 50% !important;
+} */
+
+.makeStyles-circle-400 {
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 50% !important;
+  background-color: currentColor !important;
+}
+.flow {
+  width: 100%;
+}
+.makeStyles-root-398 {
+  /* background-color: #73e69a; */
+  color: white;
+  width: 30px;
+  height: 30px !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.makeStyles-active-399{
+  color: #EAEAF0 !important;
+}
+.makeStyles-completed-401 {
+  font-size: 26px;
+  color: aliceblue !important;
+}
+.WithStyles\(ForwardRef\(StepConnector\)\)-active-403
+  .WithStyles\(ForwardRef\(StepConnector\)\)-line-405 {
+  border-color: #56be78 !important;
+}
+.MuiStepLabel-iconContainer.MuiStepLabel-alternativeLabel {
+  background-color: #73e69a;
+  border-radius: 50%;
+}
+.WithStyles\(ForwardRef\(StepConnector\)\)-alternativeLabel-628 .WithStyles\(ForwardRef\(StepConnector\)\)-active-629 .WithStyles\(ForwardRef\(StepConnector\)\)-line-631{
+  border-color: #73e69a;
+}

@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../src/Font/Roboto-Regular.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto" !important;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html {
+  font-family: "Roboto" !important;
+}
+code {
+  font-family: "Roboto" !important;
+}
+#root {
+  font-family: "Roboto" !important;
+}
+p {
+  margin-bottom: 2px;
+}
+.Dialogmodal .MuiDialogTitle-root {
+  box-shadow: none;
+}
