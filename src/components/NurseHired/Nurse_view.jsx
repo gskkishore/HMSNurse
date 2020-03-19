@@ -27,8 +27,8 @@ export default class Nurse_view extends Component {
  
     return (
       <Dialog className="dialog_nurse_eyeview" onClose={this.handleClose} aria-labelledby="simple-dialog-title" {...other}>
-                <div>
-                <CloseIcon className="close_inticon" onClick={this.props.onClose}/>
+                <div className="close_icon">
+                <CloseIcon  onClick={this.props.onClose}/>
                 </div>
       <div>
         <Grid container className="nurse_view_grid_container">
@@ -126,6 +126,7 @@ export default class Nurse_view extends Component {
                   variant="outlined"
                   className="nurse_modelcancel"
                   color="secondary"
+                  onClick={this.props.onClose}
                 >
                   Cancel
                 </Button>

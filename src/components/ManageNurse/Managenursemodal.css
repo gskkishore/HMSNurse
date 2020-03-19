@@ -88,10 +88,15 @@
 }
 .manage_nurse_popup_details .nurse_working_hour_detail {
   font-size: 15px;
-  width: 80%;
+  width: 72%;
 }
 .manage_nurse_popup_details .working_time_detail {
   width: 100%;
+  font-size: 1vw;
+  padding-left: 0px !important;
+}
+.manage_nurse_popup_details .working_time_detail_skills {
+  padding-left: 0px !important;
   font-size: 1vw;
 }
 
@@ -153,3 +158,16 @@
 .btn-text {
   text-align: center;
 }
+.manage_nurse_close_icon {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+
+}
+.nurse_modal_button .btn-success {
+  padding-right: 20% !important;
+  padding-left: 20% !important;
+}
+

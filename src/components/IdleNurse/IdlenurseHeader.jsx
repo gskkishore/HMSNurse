@@ -9,6 +9,8 @@ import  ReactSVG  from 'react-svg';
 import IdlenurseTable from "./IdlenurseTable";
 import Paper from "@material-ui/core/Paper"; 
 import { Input } from "antd";
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 class NursebookedHeader extends Component {
   constructor(props) {
@@ -35,20 +37,11 @@ class NursebookedHeader extends Component {
         <div className="title_dashboard">
           <p className="title_header">IDLE NURSES </p>
           <div style={{ fontSize: "16px" ,display:"flex",alignItems:"center"}}>
-            <div className="btn-group btn-group-toogle ">
-              <button type="button" className="btn btn-primary this_day btn-lg">
-                This Week
-              </button>
-              <button type="button" className="btn btn-info this_month btn-lg">
-                This Month
-              </button>
-              <button
-                type="button"
-                className="btn btn-info this_year btn-lg mr-5"
-              >
-                This Year
-              </button>
-            </div>
+          <ButtonGroup className="clinic_group_details" size="small" aria-label="small outlined button group">
+              <Button className="clinic_details">This Day</Button>
+              <Button className="clinic_details">This Month</Button>
+              <Button className="clinic_details">This Year</Button>
+            </ButtonGroup>
             <Moment format="DD-MMM-YYYY" className="mr-2"></Moment>
             <Search
               placeholder="search"

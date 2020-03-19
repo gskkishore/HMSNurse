@@ -10,8 +10,7 @@
 }
 
 .page_button_container {
-  /* position: relative; */
-  bottom: 49px;
+  padding-bottom: 10px
 }
 
 .lab_dash_bottom_buttons {
@@ -55,6 +54,11 @@
 .lab_dash_bottom3 .MuiButton-label {
   padding: 0px 18px;
   font-size: 18px;
+}
+.todays_appointments_text {
+  font-weight: 700;
+  margin-right: 5px;
+  color: black;
 }
 @media only screen and (max-width: 1040px) {
   .lab_dash_bottom3 {

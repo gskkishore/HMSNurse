@@ -107,15 +107,14 @@ class DashboardTable extends React.Component {
           GrandTotal="close"
           modelopen={e => this.modelopen(e)}
         />
-        <Modalcomp
+        {/* <Modalcomp
           visible={this.state.openview}
           closemodal={e => this.closemodal(e)}
         >
-          {/* <CloseIcon /> */}
 
           <Managenursemodal />
-        </Modalcomp>
-
+        </Modalcomp> */}
+        <Managenursemodal open={this.state.openview} onClose={this.closemodal} />
         <Modalcomp
           visible={this.state.historyopen}
           title={"Nurse History"}

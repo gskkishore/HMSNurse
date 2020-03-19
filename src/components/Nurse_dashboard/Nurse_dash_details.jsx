@@ -40,7 +40,7 @@ class DashboardTable extends React.Component {
     return (
       <div>
         <div className="nurse_dash_sidehead">
-          <text className="mr-5">
+          <text className="todays_appointments_text">
             <b>Today's Appointments</b>
           </text>
           {current_date}

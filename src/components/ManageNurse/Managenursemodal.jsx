@@ -15,6 +15,8 @@ import { withStyles } from "@material-ui/core/styles";
 import "./Managenursemodal.css";
 import { TiLocation, MdLocationOn, MdLocalPhone } from "react-icons/md";
 import { IoIosGlobe } from "react-icons/io";
+import CloseIcon from '@material-ui/icons/Close';
+
 import EditIcon from "@material-ui/icons/Edit";
 const styles = {};
 export default class Profilepage extends React.Component {
@@ -22,7 +24,7 @@ export default class Profilepage extends React.Component {
     super(props);
     this.state = { cancel: null };
   }
-  handleClose = () => {
+  handleClose = () => { 
     this.props.onClose(this.props.selectedValue);
   };
   render() {
@@ -30,21 +32,25 @@ export default class Profilepage extends React.Component {
     const { classes, onClose, cancel, selectedValue, ...other } = this.props;
 
     return (
-      <div className="manage_nurse_popup_details">
-        {/* <Dialog
+        <Dialog
           onClose={this.handleClose}
           aria-labelledby="simple-dialog-title"
           {...other}
-        > */}
+        >
+           <div className="manage_nurse_popup_details">
+
+           <div className="manage_nurse_close_icon">
+                <CloseIcon style={{fontSize:"20px"}}  onClick={this.props.onClose}/>
+                </div>
         <Grid container className="total">
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={5}>
             <div className="manage_nurse_image_container">
               <div className="manage_nurse_image_div">
                 <img className="manage_nurse_image" src={Trainee} />
               </div>
             </div>
           </Grid>
-          <Grid item xs={12} md={6} className="addmanage_nurse_gridcontainer">
+          <Grid item xs={12} md={7} className="addmanage_nurse_gridcontainer">
             <div>
               {/* <div className="icon_edit">
                   <EditIcon className="icon" />
@@ -100,7 +106,7 @@ export default class Profilepage extends React.Component {
                   <div className="nurse_working_detail">
                     <h4 className="nurse_working_hour_detail">Skills</h4>
 
-                    <p className="working_time_detail">
+                    <p className="working_time_detail_skills">
                       Cultural Awareness,Professionalism
                     </p>
                   </div>
@@ -150,8 +156,9 @@ export default class Profilepage extends React.Component {
               </div> */}
           </Grid>
         </Grid>
-        {/* </Dialog> */}
-      </div>
+        </div>
+        </Dialog>
+    
     );
   }
 }

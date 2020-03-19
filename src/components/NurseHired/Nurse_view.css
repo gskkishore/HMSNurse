@@ -141,6 +141,11 @@
   align-items: center;
   justify-content: flex-start;
 }
+.close_icon {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
 /*@media only screen and (max-width: 1000px){
     .nurse_view_cancel{
         width: 80px !important;

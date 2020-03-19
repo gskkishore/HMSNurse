@@ -5,7 +5,8 @@ import pdf from "../../Images/pdf.svg";
 import excel from "../../Images/excel.svg";
 import  ReactSVG  from 'react-svg';
 import Moment from "react-moment";
-
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import "antd/dist/antd.css";
 import Totalleavetable from "./TotalleaveTable";
 import Paper from "@material-ui/core/Paper";
@@ -30,20 +31,11 @@ class TotalleaveHeader extends Component {
         <div className="title_dashboard">
           <p className="title_header">NURSES ON LEAVE </p>
           <div style={{ fontSize: "16px" ,display:"flex",alignItems:"center"}}>
-            <div className="btn-group btn-group-toogle ">
-              <button type="button" className="btn btn-primary this_day btn-lg">
-                This Week
-              </button>
-              <button type="button" className="btn btn-info this_month btn-lg">
-                This Month
-              </button>
-              <button
-                type="button"
-                className="btn btn-info this_year btn-lg mr-5"
-              >
-                This Year
-              </button>
-            </div>
+          <ButtonGroup className="clinic_group_details" size="small" aria-label="small outlined button group">
+              <Button className="clinic_details">This Day</Button>
+              <Button className="clinic_details">This Month</Button>
+              <Button className="clinic_details">This Year</Button>
+            </ButtonGroup>
             <Moment format="DD-MMM-YYYY" className="mr-2"></Moment>
             <Search
               placeholder="search"

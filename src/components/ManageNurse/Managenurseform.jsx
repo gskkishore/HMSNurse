@@ -45,10 +45,12 @@ export default class Uploadform extends Component {
                 <h2>
                   <b>ABIDA</b>
                 </h2>
-                <p>29 years/ Female</p>
+                <div style={{fontSize:"15px"}}>
+                <p >29 years/ Female</p>
                 <p>Jabriya...</p>
                 <p>5 Years Experience </p>
                 <p>+965 22000001 </p>
+                </div>
               </div>
             </Grid>
           </Grid>
