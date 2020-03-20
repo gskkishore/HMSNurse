@@ -32,7 +32,7 @@ class TotalleaveHeader extends Component {
           <p className="title_header">NURSES ON LEAVE </p>
           <div style={{ fontSize: "16px" ,display:"flex",alignItems:"center"}}>
           <ButtonGroup className="clinic_group_details" size="small" aria-label="small outlined button group">
-              <Button className="clinic_details">This Day</Button>
+              <Button className="clinic_details">This Week</Button>
               <Button className="clinic_details">This Month</Button>
               <Button className="clinic_details">This Year</Button>
             </ButtonGroup>

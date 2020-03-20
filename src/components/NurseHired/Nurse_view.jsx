@@ -109,7 +109,7 @@ export default class Nurse_view extends Component {
 
           <Grid item xs={12} md={6} className="generalduties_details_container">
             <div className="generalduties_details">
-              <h4 className="general_head">General Duties</h4>
+              <h4 className="general_head">General Duties</h4>  
               <text className="genaeral_details">
                 Caring,Baby sitting
                 <br />
@@ -128,7 +128,7 @@ export default class Nurse_view extends Component {
                   color="secondary"
                   onClick={this.props.onClose}
                 >
-                  Cancel
+                  Close
                 </Button>
               </div>
             </div>

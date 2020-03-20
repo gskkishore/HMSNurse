@@ -7,6 +7,8 @@ import "./DealList.css";
 import { Progress } from "antd";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
+import Modalcomp from "../../helpers/ModalComp/Modalcomp"
+import DeleteMedia from "../../helpers/TableComponent/DeleteMedia"
 const data = [{ month: "Jan.", count: 69, city: "tokyo" }];
 const scale = {
   month: { alias: "Month" },
@@ -15,8 +17,16 @@ const scale = {
 export default class DealList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: "" };
+    this.state = { name: "",
+    open:false
+  };
   }
+  handleOpen = () => {
+    this.setState({ open: true });
+  };
+  handleClose = () => {
+    this.setState({ open: false });
+  };
   render() {
     return (
       <div className="deal_list_paper_maincontainer">
@@ -37,7 +47,8 @@ export default class DealList extends React.Component {
                   <p className="view">Deal Active</p>
                   <div className="iconsdiv">
                     <EditIcon className="edit_icon_div" />
-                    <DeleteIcon className="delete_icon_div" />
+                    <DeleteIcon className="delete_icon_div" onClick={this.handleOpen}
+ />
                   </div>
                 </Grid>
               </Grid>
@@ -82,8 +93,17 @@ export default class DealList extends React.Component {
                 </Grid>
               </Grid>
             </Paper>
-          </Grid>
+          </Grid> 
         </Grid>
+        <Modalcomp
+          xswidth={"xs"}
+          clrchange="textclr"
+          title="Delete Media"
+          visible={this.state.open}
+          closemodal={this.handleClose}
+        >
+          <DeleteMedia />
+        </Modalcomp>
       </div>
     );
   }

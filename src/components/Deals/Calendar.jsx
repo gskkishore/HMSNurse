@@ -1,10 +1,13 @@
 import React from "react";
-import moment from "moment";
-import { range } from "moment-range";
 import "./Calendar.css";
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import dateFormat from 'dateformat';
+import originalMoment from "moment";
+import { extendMoment } from "moment-range";
+
+
+const moment = extendMoment(originalMoment);
 const Current_date=(dateFormat(new Date(),"ddd, dd mmm yyyy"))
 export default class Calendar extends React.Component {
   weekdayshort = moment.weekdaysShort();
@@ -16,15 +19,21 @@ export default class Calendar extends React.Component {
     dateObject: moment(),
     allmonths: moment.months(),
     selectedDay: null,
-    currentdate:moment().format("mmm")
+    currentdate:moment().format("mmm"),
+    fulldate:"",
+    datearr:'',
+    rangearr:"",
   };
   daysInMonth = () => {
     return this.state.dateObject.daysInMonth();
   };
   year = () => {
+    console.log(this.state.dateObject.format("Y"),"year")
+
     return this.state.dateObject.format("Y");
   };
   currentDay = () => {
+    console.log(this.state.dateObject.format("Y"),"currentday")
     return this.state.dateObject.format("D");
   };
   firstDayOfMonth = () => {
@@ -96,12 +105,12 @@ export default class Calendar extends React.Component {
       </table>
     );
   };
-  // showYearTable = e => {
-  //   this.setState({
-  //     showYearTable: !this.state.showYearTable,
-  //     showDateTable: !this.state.showDateTable
-  //   });
-  // };
+  showYearTable = e => {
+    this.setState({
+      showYearTable: !this.state.showYearTable,
+      showDateTable: !this.state.showDateTable
+    });
+  };
 
   onPrev = () => {
     let curr = "";
@@ -199,16 +208,45 @@ export default class Calendar extends React.Component {
     );
   };
   onDayClick = (e, d) => {
+    console.log(d,this.month(),this.year(),"insideclick")
+    var datearr=[]
+    var rangearr=[]
+    // for open availability buttons
+
+    if(this.state.fulldate.length===2){
+      this.props.open_btn && this.props.open_btn(false)
+    }
+    else if(this.state.fulldate.length===1){
+      this.props.open_btn && this.props.open_btn(true)
+    }
+
+    // 
+
+
+
+if(this.state.fulldate.length<=1){
+
+    datearr.push(...this.state.fulldate,`selectedclr${d}_${this.month()}_${this.year()}`)
+    rangearr.push(...this.state.rangearr,d+" "+this.state.dateObject.format("M")+" "+this.state.dateObject.format("Y"))
+    
+}
+else{
+  datearr.push(`selectedclr${d}_${this.month()}_${this.year()}`)
+  rangearr.push(d+" "+this.state.dateObject.format("M")+" "+this.state.dateObject.format("Y"))
+  
+}
+
+console.log(datearr,"datearr")
     this.setState(
       {
-        selectedDay: d
+        selectedDay: d,
+        fulldate:datearr,
+        rangearr:rangearr,
       },
-      () => {
-        console.log("SELECTED DAY: ", this.state.selectedDay);
-      }
     );
   };
   render() {
+    console.log(this.state.selectedDay,this.state.dateObject.format("MMM"),this.state.dateObject.format("Y"),"selectedDay")
     let weekdayshortname = this.weekdayshort.map(day => {
       return <th key={day}>{day}</th>;
     });
@@ -217,10 +255,74 @@ export default class Calendar extends React.Component {
       blanks.push(<td className="calendar-day empty"></td>);
     }
     let daysInMonth = [];
+
+
     for (let d = 1; d <= this.daysInMonth(); d++) {
+      const startdate=`selectedclr${d}_${this.state.dateObject.format("MMM")}_${this.state.dateObject.format("Y")}`
       let currentDay = d == this.currentDay() ? "today" : "";
+      var firstdate=this.state.selectedDay+" "+this.state.dateObject.format("M")+" "+this.state.dateObject.format("Y")
+      console.log((this.state.rangearr && this.state.rangearr[0].slice(0, 2)),"slice")
+
+
+
+      // calculate for inter css
+
+      var first_sel_val=this.state.rangearr && Number(this.state.rangearr[0].slice(0, 2))
+      var second_sel_val=this.state.rangearr[1] && Number(this.state.rangearr[1].slice(0, 2))
+      var final_dif_val=first_sel_val-second_sel_val
+      if(final_dif_val<0){
+        var final_dif_val=(final_dif_val*-1)-1
+      }
+    
+    var swaparray=this.state.fulldate
+     
+      if(this.state.fulldate.length===2 && first_sel_val>second_sel_val){
+          var swaparray=[]
+          swaparray.push(this.state.fulldate[1],this.state.fulldate[0])
+      }
+
+      console.log(this.state.fulldate,"fulldate")
+      console.log(swaparray,"swaparray")
+
+        var inter_css=""
+
+          if(this.state.fulldate.length===2){
+          console.log(first_sel_val,"first_sel_val")
+
+        if(d<second_sel_val && d>first_sel_val){
+          var inter_css=`selectedclr${d}_${this.state.dateObject.format("MMM")}_${this.state.dateObject.format("Y")}`
+        }
+        
+        else if(d>second_sel_val && d<first_sel_val)
+        {
+          var inter_css=`selectedclr${d}_${this.state.dateObject.format("MMM")}_${this.state.dateObject.format("Y")}`
+        }
+          }
+          
+
+
+      console.log(inter_css,"inter_css")
       daysInMonth.push(
-        <td key={d} className={`calendar-day ${currentDay}`}>
+        
+
+        <td key={d} className={`calendar-day ${currentDay}`} >
+          <div className="range_parent w-100">
+
+          <div className="range_child w-25">
+          </div>
+          <div
+          // className={`selectedclr${d}_${this.state.dateObject.format("MMM")}_${this.state.dateObject.format("Y")}`}
+          // style={{backgroundColor:`${d===this.state.selectedDay && "table_fir_sel"}`}}
+          // className={applycss}
+          // className={startdate===inter_css && "table_fir_sel"}
+
+          className={`${startdate===swaparray[0] && "table_fir_sel" ||
+          startdate===swaparray[1] && "table_sec_sel" || 
+          startdate===inter_css  && "table_inter_sel"
+         }` }
+
+
+          >
           <span className="table-body"
             onClick={e => {
               this.onDayClick(e, d);
@@ -229,12 +331,14 @@ export default class Calendar extends React.Component {
             {d}
 
           </span>
+          </div>
+          <div className="range_btm w-25">
+          </div>
+          </div>
+         
           <div className="inner_totalslots">12</div>
             <div className="inner_availslots">0</div>
-            {/* <div className="slots_container">
-          <div className="total_slots_div"><p className="total_slots"></p><span className="total_slots_text">Total Slots</span></div>
-          <div className="total_slots_div"><p className="avail_slots"></p><span className="total_slots_text">Total Slots</span></div>
-          </div> */}
+
         </td>
       );
     }
@@ -264,30 +368,31 @@ export default class Calendar extends React.Component {
       <div className="tail-datetime-calendar">
         <div className="calendar-navi">
         <div>{Current_date}</div>
-        <div>
+        <div  className="move_lft_rgt">
           <ChevronLeftIcon className="date_arrow" onClick={e => {this.onPrev(); }}/>
           {!this.state.showMonthTable && (
             <span
-              onClick={e => {
-                this.showMonth();
-              }}
+              // onClick={e => {
+              //   this.showMonth();
+              // }}
               class="calendar-label"
             >
               {this.month()}
             </span>
           )}
-          <span  onClick={e => this.showYearTable()}>{this.year()}</span>
+          {/* <span  onClick={e => this.showYearTable()}>{this.year()}</span> */}
+          <span>{this.year()}</span>
            <ChevronRightIcon className="date_arrow" onClick={e => {this.onNext();}}/>
            </div>
         </div>
-       
+
         <div className="calendar-date">
           {this.state.showYearTable && <this.YearTable props={this.year()} />}
           {this.state.showMonthTable && (
             <this.MonthList data={moment.months()} />
           )}
         </div>
-          
+
        {this.state.showDateTable && (
           <div className="calendar-date">
             <table className="calendar-day">
@@ -295,15 +400,15 @@ export default class Calendar extends React.Component {
                 <tr>{weekdayshortname}</tr>
               </thead>
               <tbody className="table_body">{daysinmonth}</tbody>
-              
-              
-          
+
+
+
             </table>
             <div className="calslots_container">
           <div className="total_slots_div"><p className="total_slots"></p><span className="total_slots_text">Total Slots</span></div>
           <div className="total_slots_div"><p className="avail_slots"></p><span className="total_slots_text">Available Slots</span></div>
           </div>
-             
+
           </div>
         )}
       </div>

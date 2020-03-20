@@ -50,6 +50,7 @@ class ProfileComp extends Component {
   }
   render() {
   
+    const { classes, onClose, selectedValue, ...other } = this.props;
 
     return (
       <div className="deal_listcreatead">
@@ -70,7 +71,7 @@ class ProfileComp extends Component {
             <Grid item xs={12} md={7} className="addprofile_gridcontainer">
               <div className="profile_nursecontainer">
                 <div className="icon_edit">
-                  <EditIcon className="icon" onClick={this.handleopen} />
+                  <EditIcon className="icon" onClick={this.handleopen} onClose={this.props.handleClose}/>
                 </div>
                 <div style={{ padding: "20px" }}>
                   <h1 className="profile_detail">Abdul Khaafid</h1>

@@ -57,7 +57,10 @@ export default class BookingDetails extends React.Component {
                         <span>Deal Active</span>
                       </div>
                     </div>
+                    <div style={{display:"flex",alignItems:"center"}}>
                     <Labelbox type="text" value="30" width={"90%"} />
+                    (KWD)
+                    </div>
                   </Grid>
                   {/* <Grid item xs={6} md={6}></Grid> */}
                   <Grid item xs={12} md={12}>

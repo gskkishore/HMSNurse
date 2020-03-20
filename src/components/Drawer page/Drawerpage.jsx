@@ -47,6 +47,8 @@ import TotalnurseDashboard from "../ManageNurse/TotalnurseDashboard";
 import CancelPayment from "../CancelPayment/CancelPayment";
 import PaymentReceived from "../PaymentReceived/PaymentReceived";
 import ProfileComp from "../Profilepage/Profilepage"
+import CustomerHistoryHeader from "../CustomerHistory/CustomerHistoryHeader";
+
 
 
 
@@ -132,6 +134,10 @@ class MiniDrawer extends React.Component {
     viewmodal: false
   };
 
+  handleClose = () => {
+    this.props.onClose(this.props.selectedValue);
+  };
+
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
@@ -146,7 +152,7 @@ class MiniDrawer extends React.Component {
     this.setState({ viewmodal: false });
   };
   render() {
-    const { classes, theme, children } = this.props;
+    const { classes, theme, children,onClose,selectedValue } = this.props;
 
     return (
       <div className="drawerpage_container">
@@ -194,7 +200,7 @@ class MiniDrawer extends React.Component {
                     My Profile
                   </Dropdown.Toggle>
 
-                  <Dropdown.Menu className="dropdown-menu">
+                  <Dropdown.Menu className="dropdown-menu" >
                     <div className="dropdown-img">
                       <img
                         className="Avatar"
@@ -215,7 +221,8 @@ class MiniDrawer extends React.Component {
                       <p>Profile</p>
                       <Button
                         className="logout_butt"
-                        onClick={this.props.onClose}
+                        // onClick={this.handleClose}
+                        onClose={this.props.onClose}
                       >
                         Logout
                       </Button>
@@ -375,7 +382,7 @@ class MiniDrawer extends React.Component {
                 </ListItemIcon>
                 <ListItemText primary="Profile" />
               </MenuItem>
-              <MenuItem >
+              <MenuItem component={Link} to="/Home/customerhistory">
                 <ListItemIcon>
                   <div className="icon-container">
                     <div>
@@ -402,6 +409,8 @@ class MiniDrawer extends React.Component {
             <Route path={`${this.props.match.path}/cancelpayment`} component={CancelPayment} exact />
             <Route path={`${this.props.match.path}/paymentreceived`} component={PaymentReceived} exact />  
             <Route path={`${this.props.match.path}/profilepage`} component={ProfileComp} exact />  
+            <Route path={`${this.props.match.path}/customerhistory`} component={CustomerHistoryHeader} exact />  
+
 
 
             

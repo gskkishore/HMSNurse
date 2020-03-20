@@ -13,7 +13,7 @@ import Full from "../../Images/Full.svg";
 import DeleteMedia from "./DeleteMedia";
 import Modalcomp from "../../helpers/ModalComp/Modalcomp";
 import { MdModeEdit } from "react-icons/md";
-import Steppers from "./Steppers";
+import Steppers from "../StepperStatus/Status";
 // import { Chart, Axis, Legend, Tooltip, Geom } from 'bizcharts';
 const data = [{ month: "Jan.", count: 69, city: "tokyo" }];
 const scale = {

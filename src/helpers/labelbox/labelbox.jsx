@@ -164,10 +164,10 @@ export default class Labelbox extends Component {
                   fontSize="small"
                 />
               }
-              label="Male"
+              label="Amount"
             />
             <FormControlLabel
-              value="female"
+              value="Percentage"
               control={
                 <Radio
                   className="radiobtncolor"
@@ -178,7 +178,7 @@ export default class Labelbox extends Component {
                   fontSize="small"
                 />
               }
-              label="Female"
+              label="Percentage"
             />
           </div>
         </div>

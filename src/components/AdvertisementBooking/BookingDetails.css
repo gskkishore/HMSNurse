@@ -121,9 +121,9 @@
 .createbutton-container .MuiButton-root {
   min-width: 80px !important;
 }
-.half_div {
+/* .half_div {
   padding: 9px 9px 9px 0px !important;
-}
+} */
 .booking_createlist .ant-upload.ant-upload-select {
   border-radius: 2px;
   width: 100%;

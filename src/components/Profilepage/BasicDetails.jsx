@@ -18,7 +18,7 @@ export default class BasicDetails extends React.Component {
     this.setState({open:false})
   }  
 
-
+ 
   render() {
     return (
       <div className="basic_detailsmodal">
